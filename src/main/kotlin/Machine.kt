@@ -8,15 +8,12 @@ data class Machine(
         val type: String,
         val inputsCount: Int,
         val outputsCount: Int,
-        val x: Double = 0.0,
-        val y: Double = 0.0
+        var x: Double = 0.0,
+        var y: Double = 0.0
 ) {
     fun draw() {
         val ctx = GUI.getContext()
         ctx.beginPath()
-        ctx.fillStyle = "RGB(0,0,0)"
-        ctx.font = "12px sans-serif"
-        ctx.lineWidth = 2.0
 
         DrawUtils.drawTable(ctx, x, y, WIDTH, HEIGHT, BAR_HEIGHT)
         DrawUtils.drawText(ctx, type, x, y, WIDTH, BAR_HEIGHT)

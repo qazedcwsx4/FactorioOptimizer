@@ -1,3 +1,6 @@
+import kotlin.browser.window
+import kotlin.js.Promise
+
 class Application(
         config: String
 ) {

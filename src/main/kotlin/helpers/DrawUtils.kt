@@ -23,7 +23,6 @@ object DrawUtils {
     }
 
     fun drawTable(ctx: CanvasRenderingContext2D, x: Double, y: Double, w: Double, h: Double, barH: Double) {
-        ctx.fillStyle = "RGB(0,0,0)"
         ctx.rect(x, y, w, h)
         ctx.moveTo(x, y + barH)
         ctx.lineTo(x + w, y + barH)
