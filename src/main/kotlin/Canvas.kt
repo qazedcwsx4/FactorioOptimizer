@@ -18,7 +18,6 @@ class Canvas {
         document.body!!.appendChild(canvas)
 
         context.scale(scale, scale)
-        context.fillStyle = "RGB(0,0,0)"
         context.font = "12px sans-serif"
         context.fillStyle = "RGB(0,0,0)"
         context.lineWidth = 2.0

@@ -11,10 +11,17 @@ data class Machine(
         var x: Double = 0.0,
         var y: Double = 0.0
 ) {
-    fun draw() {
+    fun draw(selected: Boolean) {
         val ctx = GUI.getContext()
-        ctx.beginPath()
 
+        if (selected){
+            ctx.fillStyle = "RGB(70,124,232)"
+            ctx.strokeStyle = "RGB(70,124,232)"
+        } else {
+            ctx.fillStyle = "RGB(0,0,0)"
+            ctx.strokeStyle = "RGB(0,0,0)"
+        }
+        ctx.beginPath()
         DrawUtils.drawTable(ctx, x, y, WIDTH, HEIGHT, BAR_HEIGHT)
         DrawUtils.drawText(ctx, type, x, y, WIDTH, BAR_HEIGHT)
         DrawUtils.drawHooks(ctx, x, y + BAR_HEIGHT, HEIGHT - BAR_HEIGHT, inputsCount)

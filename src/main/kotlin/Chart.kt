@@ -6,6 +6,7 @@ class Chart(
         private val factory: MachineFactory
 ) {
     private val machines = mutableListOf<Machine>()
+    private var selected: Machine? = null
 
     init {
         GUI.addListener("mousedown", ::handleMouseDown)
@@ -24,18 +25,22 @@ class Chart(
         val x = evt.offsetX
         val y = evt.offsetY
 
+        selected = null
         checkHeaders(x, y)?.let { dragMachine(x, y, it); return }
+        checkBodies(x, y)?.let { selectMachine(it); return }
         createMachine(x, y)
-        drawState()
     }
 
     private fun createMachine(x: Double, y: Double) {
         machines.add(factory.createMachine(GUI.getCurrentMachine(), x, y))
+        drawState()
     }
 
     private fun dragMachine(x: Double, y: Double, machine: Machine) {
         val diffX = x - machine.x
         val diffY = y - machine.y
+
+        selectMachine(machine)
 
         val handleDrag = fun(evt: Event) {
             evt as MouseEvent
@@ -55,10 +60,16 @@ class Chart(
         GUI.addListener("mouseup", handleMouseUp)
     }
 
+    private fun selectMachine(machine: Machine) {
+        println("GEJE")
+        selected = machine
+        drawState()
+    }
+
     private fun drawState() {
         GUI.clearScreen()
         machines.forEach {
-            it.draw()
+            it.draw(it == selected)
         }
     }
 }
