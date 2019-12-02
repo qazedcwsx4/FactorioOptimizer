@@ -51,7 +51,6 @@ class Chart(
 
         lateinit var handleMouseUp: (Event) -> Unit
         handleMouseUp = {
-            println("deletuje")
             it as MouseEvent
             GUI.removeListener("mousemove", handleDrag)
             GUI.removeListener("mouseup", handleMouseUp)
@@ -61,8 +60,8 @@ class Chart(
     }
 
     private fun selectMachine(machine: Machine) {
-        println("GEJE")
         selected = machine
+        GUI.updateRecipes(factory.registry.getRecipes(machine.type))
         drawState()
     }
 

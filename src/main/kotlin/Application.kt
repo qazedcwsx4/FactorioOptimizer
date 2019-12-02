@@ -1,6 +1,3 @@
-import kotlin.browser.window
-import kotlin.js.Promise
-
 class Application(
         config: String
 ) {
@@ -8,6 +5,6 @@ class Application(
         val registry = RecipeRegistry(config)
         val factory = MachineFactory(registry)
         val chart = Chart(factory)
-        GUI.update(registry.getMachines())
+        GUI.updateMachines(registry.getMachines())
     }
 }

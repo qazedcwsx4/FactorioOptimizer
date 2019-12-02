@@ -1,19 +1,30 @@
 import org.w3c.dom.*
 import org.w3c.dom.events.Event
 import kotlin.browser.document
+import kotlin.dom.clear
 
 object GUI {
     private val machinePicker = document.createElement("select") as HTMLSelectElement
+    private val recipePicker = document.createElement("select") as HTMLSelectElement
+
     private val canvas: Canvas
 
     init {
         document.body!!.appendChild(machinePicker)
+        document.body!!.appendChild(recipePicker)
         canvas = Canvas()
     }
 
-    fun update(machines: List<String>) {
+    fun updateMachines(machines: List<String>) {
         machines.forEach {
             machinePicker.add(Option(it))
+        }
+    }
+
+    fun updateRecipes(recipes: List<Recipe>) {
+        recipePicker.clear()
+        recipes.forEach { recipe ->
+            recipePicker.add(Option(recipe.outputs.joinToString(", ") { it.second }))
         }
     }
 
