@@ -1,3 +1,5 @@
+import recipe.RecipeRegistry
+
 class Application(
         config: String
 ) {
@@ -5,6 +7,6 @@ class Application(
         val registry = RecipeRegistry(config)
         val factory = MachineFactory(registry)
         val chart = Chart(factory)
-        GUI.updateMachines(registry.getMachines())
+        GUI.updateMachines(registry.getMachineNames())
     }
 }

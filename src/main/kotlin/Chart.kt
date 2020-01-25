@@ -61,7 +61,7 @@ class Chart(
 
     private fun selectMachine(machine: Machine) {
         selected = machine
-        GUI.updateRecipes(factory.registry.getRecipes(machine.type))
+        GUI.updateRecipes(factory.registry.getRecipes(machine.data.name))
         drawState()
     }
 

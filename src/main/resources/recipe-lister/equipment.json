@@ -1,0 +1,314 @@
+{
+  "battery-equipment" : {
+    "name" : "battery-equipment",
+    "type" : "battery-equipment",
+    "localised_name" : [
+      "equipment-name.battery-equipment"
+    ],
+    "shape" : {
+      "width" : 1,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 0,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "battery-mk2-equipment" : {
+    "name" : "battery-mk2-equipment",
+    "type" : "battery-equipment",
+    "localised_name" : [
+      "equipment-name.battery-mk2-equipment"
+    ],
+    "shape" : {
+      "width" : 1,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 0,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "discharge-defense-equipment" : {
+    "name" : "discharge-defense-equipment",
+    "type" : "active-defense-equipment",
+    "localised_name" : [
+      "equipment-name.discharge-defense-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 0,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.75686275959015,
+      "g" : 0,
+      "b" : 0,
+      "a" : 1
+    }
+  },
+  "energy-shield-equipment" : {
+    "name" : "energy-shield-equipment",
+    "type" : "energy-shield-equipment",
+    "localised_name" : [
+      "equipment-name.energy-shield-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 50,
+    "energy_per_shield" : 20000,
+    "energy_consumption" : 4000,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "energy-shield-mk2-equipment" : {
+    "name" : "energy-shield-mk2-equipment",
+    "type" : "energy-shield-equipment",
+    "localised_name" : [
+      "equipment-name.energy-shield-mk2-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 150,
+    "energy_per_shield" : 30000,
+    "energy_consumption" : 6000,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "exoskeleton-equipment" : {
+    "name" : "exoskeleton-equipment",
+    "type" : "movement-bonus-equipment",
+    "localised_name" : [
+      "equipment-name.exoskeleton-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 4
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 3333.3333333333,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "fusion-reactor-equipment" : {
+    "name" : "fusion-reactor-equipment",
+    "type" : "generator-equipment",
+    "localised_name" : [
+      "equipment-name.fusion-reactor-equipment"
+    ],
+    "shape" : {
+      "width" : 4,
+      "height" : 4
+    },
+    "energy_production" : 12500,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 0,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "night-vision-equipment" : {
+    "name" : "night-vision-equipment",
+    "type" : "night-vision-equipment",
+    "localised_name" : [
+      "equipment-name.night-vision-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 166.66666666667,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "personal-laser-defense-equipment" : {
+    "name" : "personal-laser-defense-equipment",
+    "type" : "active-defense-equipment",
+    "localised_name" : [
+      "equipment-name.personal-laser-defense-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 0,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.75686275959015,
+      "g" : 0,
+      "b" : 0,
+      "a" : 1
+    }
+  },
+  "personal-roboport-equipment" : {
+    "name" : "personal-roboport-equipment",
+    "type" : "roboport-equipment",
+    "localised_name" : [
+      "equipment-name.personal-roboport-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 33333.333333333,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "personal-roboport-mk2-equipment" : {
+    "name" : "personal-roboport-mk2-equipment",
+    "type" : "roboport-equipment",
+    "localised_name" : [
+      "equipment-name.personal-roboport-mk2-equipment"
+    ],
+    "shape" : {
+      "width" : 2,
+      "height" : 2
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 58333.333333333,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "solar-panel-equipment" : {
+    "name" : "solar-panel-equipment",
+    "type" : "solar-panel-equipment",
+    "localised_name" : [
+      "equipment-name.solar-panel-equipment"
+    ],
+    "shape" : {
+      "width" : 1,
+      "height" : 1
+    },
+    "energy_production" : 500,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 0,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  },
+  "belt-immunity-equipment" : {
+    "name" : "belt-immunity-equipment",
+    "type" : "belt-immunity-equipment",
+    "localised_name" : [
+      "equipment-name.belt-immunity-equipment"
+    ],
+    "shape" : {
+      "width" : 1,
+      "height" : 1
+    },
+    "energy_production" : 0,
+    "shield" : 0,
+    "energy_per_shield" : 0,
+    "energy_consumption" : 1666.6666666667,
+    "equipment_categories" : [
+      "armor"
+    ],
+    "background_color" : {
+      "r" : 0.2549019753933,
+      "g" : 0.29803922772408,
+      "b" : 0.75686275959015,
+      "a" : 1
+    }
+  }
+}

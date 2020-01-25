@@ -1,5 +1,6 @@
 import org.w3c.dom.*
 import org.w3c.dom.events.Event
+import recipe.Recipe
 import kotlin.browser.document
 import kotlin.dom.clear
 
@@ -24,7 +25,7 @@ object GUI {
     fun updateRecipes(recipes: List<Recipe>) {
         recipePicker.clear()
         recipes.forEach { recipe ->
-            recipePicker.add(Option(recipe.outputs.joinToString(", ") { it.second }))
+            recipePicker.add(Option(recipe.name))
         }
     }
 
