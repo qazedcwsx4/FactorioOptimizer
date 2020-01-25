@@ -32,4 +32,13 @@ open class RecipeRegistry(path: String) {
             recipes.filter { it.category == category }
         }
     }
+
+    fun getRecipe(name: String): Recipe {
+        return recipes.find { it.name == name } ?: throw IllegalArgumentException("recipe $name doesn't exist")
+    }
+
+    fun getRecipeIndex(name: String): Int {
+        return recipes.indexOf(recipes.find { it.name == name }
+                ?: throw IllegalArgumentException("recipe $name doesn't exist")) + 1
+    }
 }

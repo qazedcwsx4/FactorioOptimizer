@@ -1,5 +1,7 @@
+import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.Event
 import org.w3c.dom.events.MouseEvent
+import recipe.RecipeRegistry
 import kotlin.browser.window
 
 class Chart(
@@ -10,6 +12,13 @@ class Chart(
 
     init {
         GUI.addListener("mousedown", ::handleMouseDown)
+        GUI.setTargetedChart(this)
+        GUI.addRecipesListener("change", ::handleRecipeChange)
+    }
+
+    private fun handleRecipeChange(evt: Event) {
+        selected?.selectedRecipe = factory.registry.getRecipe((evt.target as HTMLSelectElement).value)
+        drawState()
     }
 
     private fun checkHeaders(x: Double, y: Double): Machine? {
@@ -62,6 +71,10 @@ class Chart(
     private fun selectMachine(machine: Machine) {
         selected = machine
         GUI.updateRecipes(factory.registry.getRecipes(machine.data.name))
+
+        if (selected?.selectedRecipe == null) GUI.selectRecipe(0)
+        else GUI.selectRecipe(factory.registry.getRecipeIndex(selected?.selectedRecipe!!.name))
+
         drawState()
     }
 
