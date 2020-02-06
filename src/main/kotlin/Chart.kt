@@ -1,7 +1,6 @@
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.Event
 import org.w3c.dom.events.MouseEvent
-import recipe.RecipeRegistry
 import kotlin.browser.window
 
 class Chart(
@@ -29,6 +28,19 @@ class Chart(
         return machines.firstOrNull { y in it.y + BAR_HEIGHT..it.y + HEIGHT && x in it.x..it.x + WIDTH }
     }
 
+    private fun checkHooks(x: Double, y: Double): Hook? {
+        val boxing = 10
+        val concerned = machines.filter {
+            y in it.y - boxing..it.y + HEIGHT + BAR_HEIGHT + boxing
+                    && x in it.x - boxing..it.x + WIDTH + boxing
+        }.flatMap { it.inputs + it.outputs }
+        return concerned.firstOrNull {
+            val pos = it.resolve();
+            y in pos.second - 10..pos.second + 10 &&
+                    x in pos.first - 10..pos.first + 10
+        }
+    }
+
     private fun handleMouseDown(evt: Event) {
         evt as MouseEvent
         val x = evt.offsetX
@@ -36,6 +48,7 @@ class Chart(
 
         selected = null
         checkHeaders(x, y)?.let { dragMachine(x, y, it); return }
+        checkHooks(x, y)?.let { dragHook(x, y, it); return }
         checkBodies(x, y)?.let { selectMachine(it); return }
         createMachine(x, y)
     }
@@ -43,6 +56,30 @@ class Chart(
     private fun createMachine(x: Double, y: Double) {
         machines.add(factory.createMachine(GUI.getCurrentMachine(), x, y))
         drawState()
+    }
+
+    private fun dragHook(x: Double, y: Double, hook: Hook) {
+        var newX = x
+        var newY = y
+        val handleDrag = fun(evt: Event) {
+            evt as MouseEvent
+            newX = evt.offsetX
+            newY = evt.offsetY
+        }
+
+        lateinit var handleMouseUp: (Event) -> Unit
+        handleMouseUp = {
+            it as MouseEvent
+            GUI.removeListener("mousemove", handleDrag)
+            GUI.removeListener("mouseup", handleMouseUp)
+
+            checkHooks(newX, newY)?.let {
+                hook.hook(it)
+                drawState()
+            }
+        }
+        GUI.addListener("mousemove", handleDrag)
+        GUI.addListener("mouseup", handleMouseUp)
     }
 
     private fun dragMachine(x: Double, y: Double, machine: Machine) {
