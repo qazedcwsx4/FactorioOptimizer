@@ -16,26 +16,27 @@ class Chart(
     }
 
     private fun handleRecipeChange(evt: Event) {
-        selected?.selectedRecipe = factory.registry.getRecipe((evt.target as HTMLSelectElement).value)
+        val selectedOption = factory.registry.getRecipe((evt.target as HTMLSelectElement).value)
+        selected?.changeRecipe(selectedOption)
         drawState()
     }
 
     private fun checkHeaders(x: Double, y: Double): Machine? {
-        return machines.firstOrNull { y in it.y..it.y + BAR_HEIGHT && x in it.x..it.x + WIDTH }
+        return machines.firstOrNull { y in it.y..it.y + BAR_HEIGHT && x in it.x..it.x + MACHINE_WIDTH }
     }
 
     private fun checkBodies(x: Double, y: Double): Machine? {
-        return machines.firstOrNull { y in it.y + BAR_HEIGHT..it.y + HEIGHT && x in it.x..it.x + WIDTH }
+        return machines.firstOrNull { y in it.y + BAR_HEIGHT..it.y + MACHINE_HEIGHT && x in it.x..it.x + MACHINE_WIDTH }
     }
 
     private fun checkHooks(x: Double, y: Double): Hook? {
         val boxing = 10
         val concerned = machines.filter {
-            y in it.y - boxing..it.y + HEIGHT + BAR_HEIGHT + boxing
-                    && x in it.x - boxing..it.x + WIDTH + boxing
+            y in it.y - boxing..it.y + MACHINE_HEIGHT + BAR_HEIGHT + boxing
+                    && x in it.x - boxing..it.x + MACHINE_WIDTH + boxing
         }.flatMap { it.inputs + it.outputs }
         return concerned.firstOrNull {
-            val pos = it.resolve();
+            val pos = it.resolve()
             y in pos.second - 10..pos.second + 10 &&
                     x in pos.first - 10..pos.first + 10
         }

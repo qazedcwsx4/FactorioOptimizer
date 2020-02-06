@@ -1,3 +1,5 @@
+import helpers.DrawUtils
+
 const val LENGTH = 5
 
 data class Hook(
@@ -13,6 +15,8 @@ data class Hook(
         ctx.moveTo(pos.first - LENGTH, pos.second)
         ctx.lineTo(pos.first + LENGTH, pos.second)
 
+        drawText(pos.first, pos.second)
+
         // draw connection
         connected?.let {
             if (connected!!.side == Side.LEFT) {
@@ -23,17 +27,25 @@ data class Hook(
         }
     }
 
+    private fun drawText(x: Double, y: Double) {
+        if (side == Side.LEFT) {
+            DrawUtils.drawText(name, x, y - 10, MACHINE_WIDTH / 2, 20.0)
+        } else {
+            DrawUtils.drawText(name, x - MACHINE_WIDTH / 2, y - 10, MACHINE_WIDTH / 2, 20.0)
+        }
+    }
+
     fun resolve(): Pair<Double, Double> {
         val outOf = when (side) {
             Side.LEFT -> parent.inputs.count() - 1
             Side.RIGHT -> parent.outputs.count() - 1
         }
 
-        val spaceForHooks = HEIGHT - 2 * HOOK_OFFSET - BAR_HEIGHT
+        val spaceForHooks = MACHINE_HEIGHT - 2 * HOOK_OFFSET - BAR_HEIGHT
         val y = parent.y + BAR_HEIGHT + HOOK_OFFSET
         val x = when (side) {
             Side.LEFT -> parent.x
-            Side.RIGHT -> parent.x + WIDTH
+            Side.RIGHT -> parent.x + MACHINE_WIDTH
         }
 
         // handle 1 hook case
@@ -43,9 +55,9 @@ data class Hook(
     }
 
     fun hook(o: Hook) {
-        if (o == this) {
-            unhook()
-        } else if (canBeHooked(o)) {
+        unhook()
+        if (canBeHooked(o)) {
+            o.unhook()
             connected = o
             o.connected = this
         }
@@ -57,6 +69,6 @@ data class Hook(
     }
 
     fun canBeHooked(o: Hook): Boolean {
-        return (o.name == "" || o.name == this.name)
+        return (o != this && o.side != side && (o.name == "" || name == "" || o.name == this.name))
     }
 }

@@ -14,4 +14,8 @@ object DrawUtils {
 
         ctx.fillText(text, x + offsetLeft, y + offsetUp + textHeight, w)
     }
+
+    fun drawText2() {
+
+    }
 }

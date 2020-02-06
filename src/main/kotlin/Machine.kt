@@ -2,8 +2,8 @@ import helpers.DrawUtils
 import recipe.MachineData
 import recipe.Recipe
 
-const val WIDTH = 150.0
-const val HEIGHT = 120.0
+const val MACHINE_WIDTH = 200.0
+const val MACHINE_HEIGHT = 120.0
 const val BAR_HEIGHT = 40.0
 const val HOOK_OFFSET = 10.0
 
@@ -21,8 +21,8 @@ data class Machine(
         var selectedRecipe: Recipe? = null
 ) {
     init {
-        inputs = listOf(Hook("XD", Side.LEFT, 0, this))
-        outputs = listOf(Hook("XD", Side.RIGHT, 0, this))
+        inputs = listOf(Hook("", Side.LEFT, 0, this))
+        outputs = listOf(Hook("", Side.RIGHT, 0, this))
     }
 
     fun draw(selected: Boolean) {
@@ -36,13 +36,29 @@ data class Machine(
             ctx.strokeStyle = "RGB(0,0,0)"
         }
         ctx.beginPath()
-        drawTable(x, y, WIDTH, HEIGHT, BAR_HEIGHT)
-        DrawUtils.drawText(data.name, x, y, WIDTH, BAR_HEIGHT / 2)
-        selectedRecipe?.let { DrawUtils.drawText(it.name, x, y + BAR_HEIGHT / 2, WIDTH, BAR_HEIGHT / 2) }
+        drawTable(x, y, MACHINE_WIDTH, MACHINE_HEIGHT, BAR_HEIGHT)
+        DrawUtils.drawText(data.name, x, y, MACHINE_WIDTH, BAR_HEIGHT / 2)
+        selectedRecipe?.let { DrawUtils.drawText(it.name, x, y + BAR_HEIGHT / 2, MACHINE_WIDTH, BAR_HEIGHT / 2) }
 
         drawHooks()
         ctx.stroke()
         ctx.closePath()
+    }
+
+    fun changeRecipe(selectedOption: Recipe?){
+        (inputs + outputs).forEach {
+            it.unhook()
+        }
+        selectedRecipe = selectedOption
+        if (selectedRecipe == null){
+            inputs = listOf(Hook("", Side.LEFT, 0, this))
+            outputs = listOf(Hook("", Side.RIGHT, 0, this))
+        } else {
+            var count = -1
+            inputs = selectedRecipe!!.inputs.map { count++; Hook(it.first, Side.LEFT, count, this)}
+            count = -1
+            outputs = selectedRecipe!!.outputs.map { count++; Hook(it.first, Side.RIGHT, count, this)}
+        }
     }
 
     private fun drawHooks() {

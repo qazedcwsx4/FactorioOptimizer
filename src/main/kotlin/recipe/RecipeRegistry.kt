@@ -33,8 +33,8 @@ open class RecipeRegistry(path: String) {
         }
     }
 
-    fun getRecipe(name: String): Recipe {
-        return recipes.find { it.name == name } ?: throw IllegalArgumentException("recipe $name doesn't exist")
+    fun getRecipe(name: String): Recipe? {
+        return recipes.find { it.name == name }
     }
 
     fun getRecipeIndex(name: String): Int {
