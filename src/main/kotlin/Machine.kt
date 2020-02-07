@@ -45,19 +45,25 @@ data class Machine(
         ctx.closePath()
     }
 
-    fun changeRecipe(selectedOption: Recipe?){
+    fun changeRecipe(selectedOption: Recipe?) {
         (inputs + outputs).forEach {
             it.unhook()
         }
         selectedRecipe = selectedOption
-        if (selectedRecipe == null){
+        if (selectedRecipe == null) {
             inputs = listOf(Hook("", Side.LEFT, 0, this))
             outputs = listOf(Hook("", Side.RIGHT, 0, this))
         } else {
             var count = -1
-            inputs = selectedRecipe!!.inputs.map { count++; Hook(it.first, Side.LEFT, count, this)}
+            inputs = selectedRecipe!!.inputs.map { count++; Hook(it.first, Side.LEFT, count, this) }
             count = -1
-            outputs = selectedRecipe!!.outputs.map { count++; Hook(it.first, Side.RIGHT, count, this)}
+            outputs = selectedRecipe!!.outputs.map { count++; Hook(it.first, Side.RIGHT, count, this) }
+        }
+    }
+
+    fun prepareToRemove() {
+        (inputs + outputs).forEach {
+            it.unhook()
         }
     }
 

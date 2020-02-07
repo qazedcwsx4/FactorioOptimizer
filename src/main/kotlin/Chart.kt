@@ -1,6 +1,8 @@
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.Event
+import org.w3c.dom.events.KeyboardEvent
 import org.w3c.dom.events.MouseEvent
+import kotlin.browser.document
 import kotlin.browser.window
 
 class Chart(
@@ -10,6 +12,7 @@ class Chart(
     private var selected: Machine? = null
 
     init {
+        document.addEventListener("keydown", ::handleKeyDown)
         GUI.addListener("mousedown", ::handleMouseDown)
         GUI.setTargetedChart(this)
         GUI.addRecipesListener("change", ::handleRecipeChange)
@@ -52,6 +55,20 @@ class Chart(
         checkHooks(x, y)?.let { dragHook(x, y, it); return }
         checkBodies(x, y)?.let { selectMachine(it); return }
         createMachine(x, y)
+    }
+
+    private fun handleKeyDown(evt: Event) {
+        evt as KeyboardEvent
+
+        // handle delete
+        if (evt.keyCode == 46) {
+            selected?.let {
+                it.prepareToRemove()
+                machines.remove(it)
+                selected = null
+            }
+        }
+        drawState()
     }
 
     private fun createMachine(x: Double, y: Double) {
