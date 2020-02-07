@@ -1,5 +1,5 @@
-{
-  "crude-oil" : {
+[
+  {
     "name" : "crude-oil",
     "localised_name" : [
       "entity-name.crude-oil"
@@ -226,7 +226,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -398,7 +398,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -883,7 +883,7 @@
                               },
                               {
                                 "type" : "literal-number",
-                                "literal_value" : -inf
+                                "literal_value" : 0
                               },
                               {
                                 "type" : "function-application",
@@ -1418,7 +1418,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -1873,7 +1873,7 @@
                                                 },
                                                 {
                                                   "type" : "literal-number",
-                                                  "literal_value" : -inf
+                                                  "literal_value" : 0
                                                 },
                                                 {
                                                   "type" : "function-application",
@@ -2045,7 +2045,7 @@
                                     },
                                     {
                                       "type" : "literal-number",
-                                      "literal_value" : -inf
+                                      "literal_value" : 0
                                     },
                                     {
                                       "type" : "function-application",
@@ -2530,7 +2530,7 @@
                                       },
                                       {
                                         "type" : "literal-number",
-                                        "literal_value" : -inf
+                                        "literal_value" : 0
                                       },
                                       {
                                         "type" : "function-application",
@@ -3065,7 +3065,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -3324,7 +3324,7 @@
                   },
                   {
                     "type" : "literal-number",
-                    "literal_value" : inf
+                    "literal_value" : 0
                   }
                 ]
               }
@@ -3352,7 +3352,7 @@
     },
     "pollution" : 0
   },
-  "coal" : {
+  {
     "name" : "coal",
     "localised_name" : [
       "entity-name.coal"
@@ -3580,7 +3580,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -3752,7 +3752,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -3972,7 +3972,7 @@
                                       },
                                       {
                                         "type" : "literal-number",
-                                        "literal_value" : inf
+                                        "literal_value" : 0
                                       }
                                     ]
                                   },
@@ -4101,7 +4101,7 @@
                                                   },
                                                   {
                                                     "type" : "literal-number",
-                                                    "literal_value" : inf
+                                                    "literal_value" : 0
                                                   }
                                                 ]
                                               },
@@ -4756,7 +4756,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -4928,7 +4928,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -5413,7 +5413,7 @@
                               },
                               {
                                 "type" : "literal-number",
-                                "literal_value" : -inf
+                                "literal_value" : 0
                               },
                               {
                                 "type" : "function-application",
@@ -5948,7 +5948,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -6152,7 +6152,7 @@
                 },
                 {
                   "type" : "literal-number",
-                  "literal_value" : inf
+                  "literal_value" : 0
                 }
               ]
             }
@@ -6377,7 +6377,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -6549,7 +6549,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -6769,7 +6769,7 @@
                                           },
                                           {
                                             "type" : "literal-number",
-                                            "literal_value" : inf
+                                            "literal_value" : 0
                                           }
                                         ]
                                       },
@@ -6898,7 +6898,7 @@
                                                       },
                                                       {
                                                         "type" : "literal-number",
-                                                        "literal_value" : inf
+                                                        "literal_value" : 0
                                                       }
                                                     ]
                                                   },
@@ -7553,7 +7553,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -7725,7 +7725,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -8210,7 +8210,7 @@
                                   },
                                   {
                                     "type" : "literal-number",
-                                    "literal_value" : -inf
+                                    "literal_value" : 0
                                   },
                                   {
                                     "type" : "function-application",
@@ -8745,7 +8745,7 @@
                                     },
                                     {
                                       "type" : "literal-number",
-                                      "literal_value" : -inf
+                                      "literal_value" : 0
                                     },
                                     {
                                       "type" : "function-application",
@@ -8949,7 +8949,7 @@
                     },
                     {
                       "type" : "literal-number",
-                      "literal_value" : inf
+                      "literal_value" : 0
                     }
                   ]
                 }
@@ -8998,7 +8998,7 @@
                   },
                   {
                     "type" : "literal-number",
-                    "literal_value" : inf
+                    "literal_value" : 0
                   }
                 ]
               }
@@ -9026,7 +9026,7 @@
     },
     "pollution" : 0
   },
-  "copper-ore" : {
+  {
     "name" : "copper-ore",
     "localised_name" : [
       "entity-name.copper-ore"
@@ -9254,7 +9254,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -9426,7 +9426,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -9646,7 +9646,7 @@
                                       },
                                       {
                                         "type" : "literal-number",
-                                        "literal_value" : inf
+                                        "literal_value" : 0
                                       }
                                     ]
                                   },
@@ -9775,7 +9775,7 @@
                                                   },
                                                   {
                                                     "type" : "literal-number",
-                                                    "literal_value" : inf
+                                                    "literal_value" : 0
                                                   }
                                                 ]
                                               },
@@ -10430,7 +10430,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -10602,7 +10602,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -11087,7 +11087,7 @@
                               },
                               {
                                 "type" : "literal-number",
-                                "literal_value" : -inf
+                                "literal_value" : 0
                               },
                               {
                                 "type" : "function-application",
@@ -11622,7 +11622,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -11826,7 +11826,7 @@
                 },
                 {
                   "type" : "literal-number",
-                  "literal_value" : inf
+                  "literal_value" : 0
                 }
               ]
             }
@@ -12051,7 +12051,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -12223,7 +12223,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -12443,7 +12443,7 @@
                                           },
                                           {
                                             "type" : "literal-number",
-                                            "literal_value" : inf
+                                            "literal_value" : 0
                                           }
                                         ]
                                       },
@@ -12572,7 +12572,7 @@
                                                       },
                                                       {
                                                         "type" : "literal-number",
-                                                        "literal_value" : inf
+                                                        "literal_value" : 0
                                                       }
                                                     ]
                                                   },
@@ -13227,7 +13227,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -13399,7 +13399,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -13884,7 +13884,7 @@
                                   },
                                   {
                                     "type" : "literal-number",
-                                    "literal_value" : -inf
+                                    "literal_value" : 0
                                   },
                                   {
                                     "type" : "function-application",
@@ -14419,7 +14419,7 @@
                                     },
                                     {
                                       "type" : "literal-number",
-                                      "literal_value" : -inf
+                                      "literal_value" : 0
                                     },
                                     {
                                       "type" : "function-application",
@@ -14623,7 +14623,7 @@
                     },
                     {
                       "type" : "literal-number",
-                      "literal_value" : inf
+                      "literal_value" : 0
                     }
                   ]
                 }
@@ -14672,7 +14672,7 @@
                   },
                   {
                     "type" : "literal-number",
-                    "literal_value" : inf
+                    "literal_value" : 0
                   }
                 ]
               }
@@ -14700,7 +14700,7 @@
     },
     "pollution" : 0
   },
-  "iron-ore" : {
+  {
     "name" : "iron-ore",
     "localised_name" : [
       "entity-name.iron-ore"
@@ -14928,7 +14928,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -15100,7 +15100,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -15320,7 +15320,7 @@
                                       },
                                       {
                                         "type" : "literal-number",
-                                        "literal_value" : inf
+                                        "literal_value" : 0
                                       }
                                     ]
                                   },
@@ -15449,7 +15449,7 @@
                                                   },
                                                   {
                                                     "type" : "literal-number",
-                                                    "literal_value" : inf
+                                                    "literal_value" : 0
                                                   }
                                                 ]
                                               },
@@ -16104,7 +16104,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -16276,7 +16276,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -16761,7 +16761,7 @@
                               },
                               {
                                 "type" : "literal-number",
-                                "literal_value" : -inf
+                                "literal_value" : 0
                               },
                               {
                                 "type" : "function-application",
@@ -17296,7 +17296,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -17500,7 +17500,7 @@
                 },
                 {
                   "type" : "literal-number",
-                  "literal_value" : inf
+                  "literal_value" : 0
                 }
               ]
             }
@@ -17725,7 +17725,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -17897,7 +17897,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -18117,7 +18117,7 @@
                                           },
                                           {
                                             "type" : "literal-number",
-                                            "literal_value" : inf
+                                            "literal_value" : 0
                                           }
                                         ]
                                       },
@@ -18246,7 +18246,7 @@
                                                       },
                                                       {
                                                         "type" : "literal-number",
-                                                        "literal_value" : inf
+                                                        "literal_value" : 0
                                                       }
                                                     ]
                                                   },
@@ -18901,7 +18901,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -19073,7 +19073,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -19558,7 +19558,7 @@
                                   },
                                   {
                                     "type" : "literal-number",
-                                    "literal_value" : -inf
+                                    "literal_value" : 0
                                   },
                                   {
                                     "type" : "function-application",
@@ -20093,7 +20093,7 @@
                                     },
                                     {
                                       "type" : "literal-number",
-                                      "literal_value" : -inf
+                                      "literal_value" : 0
                                     },
                                     {
                                       "type" : "function-application",
@@ -20297,7 +20297,7 @@
                     },
                     {
                       "type" : "literal-number",
-                      "literal_value" : inf
+                      "literal_value" : 0
                     }
                   ]
                 }
@@ -20346,7 +20346,7 @@
                   },
                   {
                     "type" : "literal-number",
-                    "literal_value" : inf
+                    "literal_value" : 0
                   }
                 ]
               }
@@ -20374,7 +20374,7 @@
     },
     "pollution" : 0
   },
-  "stone" : {
+  {
     "name" : "stone",
     "localised_name" : [
       "entity-name.stone"
@@ -20602,7 +20602,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -20774,7 +20774,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -20994,7 +20994,7 @@
                                       },
                                       {
                                         "type" : "literal-number",
-                                        "literal_value" : inf
+                                        "literal_value" : 0
                                       }
                                     ]
                                   },
@@ -21123,7 +21123,7 @@
                                                   },
                                                   {
                                                     "type" : "literal-number",
-                                                    "literal_value" : inf
+                                                    "literal_value" : 0
                                                   }
                                                 ]
                                               },
@@ -21778,7 +21778,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -21950,7 +21950,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -22435,7 +22435,7 @@
                               },
                               {
                                 "type" : "literal-number",
-                                "literal_value" : -inf
+                                "literal_value" : 0
                               },
                               {
                                 "type" : "function-application",
@@ -22970,7 +22970,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -23174,7 +23174,7 @@
                 },
                 {
                   "type" : "literal-number",
-                  "literal_value" : inf
+                  "literal_value" : 0
                 }
               ]
             }
@@ -23399,7 +23399,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -23571,7 +23571,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -23791,7 +23791,7 @@
                                           },
                                           {
                                             "type" : "literal-number",
-                                            "literal_value" : inf
+                                            "literal_value" : 0
                                           }
                                         ]
                                       },
@@ -23920,7 +23920,7 @@
                                                       },
                                                       {
                                                         "type" : "literal-number",
-                                                        "literal_value" : inf
+                                                        "literal_value" : 0
                                                       }
                                                     ]
                                                   },
@@ -24575,7 +24575,7 @@
                                             },
                                             {
                                               "type" : "literal-number",
-                                              "literal_value" : -inf
+                                              "literal_value" : 0
                                             },
                                             {
                                               "type" : "function-application",
@@ -24747,7 +24747,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -25232,7 +25232,7 @@
                                   },
                                   {
                                     "type" : "literal-number",
-                                    "literal_value" : -inf
+                                    "literal_value" : 0
                                   },
                                   {
                                     "type" : "function-application",
@@ -25767,7 +25767,7 @@
                                     },
                                     {
                                       "type" : "literal-number",
-                                      "literal_value" : -inf
+                                      "literal_value" : 0
                                     },
                                     {
                                       "type" : "function-application",
@@ -25971,7 +25971,7 @@
                     },
                     {
                       "type" : "literal-number",
-                      "literal_value" : inf
+                      "literal_value" : 0
                     }
                   ]
                 }
@@ -26020,7 +26020,7 @@
                   },
                   {
                     "type" : "literal-number",
-                    "literal_value" : inf
+                    "literal_value" : 0
                   }
                 ]
               }
@@ -26048,7 +26048,7 @@
     },
     "pollution" : 0
   },
-  "uranium-ore" : {
+  {
     "name" : "uranium-ore",
     "localised_name" : [
       "entity-name.uranium-ore"
@@ -26274,7 +26274,7 @@
                                     },
                                     {
                                       "type" : "literal-number",
-                                      "literal_value" : -inf
+                                      "literal_value" : 0
                                     },
                                     {
                                       "type" : "function-application",
@@ -26446,7 +26446,7 @@
                         },
                         {
                           "type" : "literal-number",
-                          "literal_value" : -inf
+                          "literal_value" : 0
                         },
                         {
                           "type" : "function-application",
@@ -26931,7 +26931,7 @@
                           },
                           {
                             "type" : "literal-number",
-                            "literal_value" : -inf
+                            "literal_value" : 0
                           },
                           {
                             "type" : "function-application",
@@ -27466,7 +27466,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -27885,7 +27885,7 @@
                                         },
                                         {
                                           "type" : "literal-number",
-                                          "literal_value" : -inf
+                                          "literal_value" : 0
                                         },
                                         {
                                           "type" : "function-application",
@@ -28057,7 +28057,7 @@
                             },
                             {
                               "type" : "literal-number",
-                              "literal_value" : -inf
+                              "literal_value" : 0
                             },
                             {
                               "type" : "function-application",
@@ -28542,7 +28542,7 @@
                               },
                               {
                                 "type" : "literal-number",
-                                "literal_value" : -inf
+                                "literal_value" : 0
                               },
                               {
                                 "type" : "function-application",
@@ -29077,7 +29077,7 @@
                                 },
                                 {
                                   "type" : "literal-number",
-                                  "literal_value" : -inf
+                                  "literal_value" : 0
                                 },
                                 {
                                   "type" : "function-application",
@@ -29324,7 +29324,7 @@
                   },
                   {
                     "type" : "literal-number",
-                    "literal_value" : inf
+                    "literal_value" : 0
                   }
                 ]
               }
@@ -29352,4 +29352,4 @@
     },
     "pollution" : 0
   }
-}
+]

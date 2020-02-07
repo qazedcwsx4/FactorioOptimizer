@@ -1,5 +1,5 @@
-{
-  "stone-furnace" : {
+[
+  {
     "name" : "stone-furnace",
     "localised_name" : [
       "entity-name.stone-furnace"
@@ -37,7 +37,7 @@
     "emissions" : 3.7037037037037e-07,
     "pollution" : 2
   },
-  "steel-furnace" : {
+  {
     "name" : "steel-furnace",
     "localised_name" : [
       "entity-name.steel-furnace"
@@ -75,7 +75,7 @@
     "emissions" : 7.4074074074074e-07,
     "pollution" : 4
   },
-  "electric-furnace" : {
+  {
     "name" : "electric-furnace",
     "localised_name" : [
       "entity-name.electric-furnace"
@@ -110,4 +110,4 @@
     "emissions" : 9.2592592592593e-08,
     "pollution" : 1
   }
-}
+]

@@ -1,14 +1,14 @@
-{
-  "burner-mining-drill" : {
+[
+  {
     "name" : "burner-mining-drill",
     "localised_name" : [
       "entity-name.burner-mining-drill"
     ],
     "energy_usage" : 150000,
     "mining_speed" : 0.25,
-    "resource_categories" : {
-      "basic-solid" : true
-    },
+    "resource_categories" : [
+      "basic-solid"
+    ],
     "allowed_effects" : {
       "consumption" : false,
       "speed" : false,
@@ -34,16 +34,16 @@
     "emissions" : 1.3333333333333e-06,
     "pollution" : 12
   },
-  "electric-mining-drill" : {
+  {
     "name" : "electric-mining-drill",
     "localised_name" : [
       "entity-name.electric-mining-drill"
     ],
     "energy_usage" : 90000,
     "mining_speed" : 0.5,
-    "resource_categories" : {
-      "basic-solid" : true
-    },
+    "resource_categories" : [
+      "basic-solid"
+    ],
     "allowed_effects" : {
       "consumption" : true,
       "speed" : true,
@@ -66,16 +66,16 @@
     "emissions" : 1.8518518518519e-06,
     "pollution" : 10
   },
-  "pumpjack" : {
+  {
     "name" : "pumpjack",
     "localised_name" : [
       "entity-name.pumpjack"
     ],
     "energy_usage" : 90000,
     "mining_speed" : 1,
-    "resource_categories" : {
-      "basic-fluid" : true
-    },
+    "resource_categories" : [
+      "basic-fluid"
+    ],
     "allowed_effects" : {
       "consumption" : true,
       "speed" : true,
@@ -98,4 +98,4 @@
     "emissions" : 1.8518518518519e-06,
     "pollution" : 10
   }
-}
+]

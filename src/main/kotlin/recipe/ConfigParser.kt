@@ -31,6 +31,26 @@ object ConfigParser {
         }.toList()
     }
 
+    fun parseResource(path: String): List<Recipe> {
+        val config = JSON.parse<Json>(getFile(path))
+
+        return config.iterator().asSequence().map { child ->
+            Recipe(
+                    name = child["name"].toString(),
+                    category = child["resource_category"].toString(),
+                    energy = child["mineable_properties"].unsafeCast<Json>().let{
+                        it["mining_time"].toString().toFloat()
+                    },
+                    inputs = listOf(),
+                    outputs = child["mineable_properties"].unsafeCast<Json>().let {
+                        it["products"].unsafeCast<Json>().iterator().asSequence().map {
+                            it["name"].toString() to it["amount"].toString().toInt()
+                        }
+                    }.toList()
+            )
+        }.toList()
+    }
+
     fun parseMachines(path: String): List<MachineData> {
         val config = JSON.parse<Json>(getFile(path))
 
@@ -41,6 +61,20 @@ object ConfigParser {
                         it.toString()
                     }.toList(),
                     speed = child["crafting_speed"].toString().toFloat()
+            )
+        }.toList()
+    }
+
+    fun parseDrills(path: String): List<MachineData> {
+        val config = JSON.parse<Json>(getFile(path))
+
+        return config.iterator().asSequence().map { child ->
+            MachineData(
+                    name = child["name"].toString(),
+                    categories = child["resource_categories"].unsafeCast<Json>().iterator().asSequence().map {
+                        it.toString()
+                    }.toList(),
+                    speed = child["mining_speed"].toString().toFloat()
             )
         }.toList()
     }

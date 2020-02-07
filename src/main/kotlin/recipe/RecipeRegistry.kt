@@ -3,8 +3,11 @@ package recipe
 import org.w3c.xhr.XMLHttpRequest
 
 open class RecipeRegistry(path: String) {
-    private val recipes: List<Recipe> = ConfigParser.parseRecipes(path + "recipe.json")
-    private val machines: List<MachineData> = ConfigParser.parseMachines(path + "assembling-machine.json")
+    private val recipes: List<Recipe> = ConfigParser.parseRecipes(path + "recipe.json") +
+            ConfigParser.parseResource(path + "resource.json")
+    private val machines: List<MachineData> = ConfigParser.parseMachines(path + "assembling-machine.json") +
+            ConfigParser.parseMachines(path + "furnace.json") +
+            ConfigParser.parseDrills(path + "mining-drill.json")
 
     init {
         println(recipes)
