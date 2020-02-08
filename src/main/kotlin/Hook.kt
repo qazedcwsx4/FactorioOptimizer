@@ -12,51 +12,84 @@ data class Hook(
     fun draw() {
         val ctx = GUI.getContext()
         val pos = resolve()
-        ctx.moveTo(pos.first - LENGTH, pos.second)
-        ctx.lineTo(pos.first + LENGTH, pos.second)
 
+        DrawUtils.drawLine(
+                Pair(pos.first - LENGTH, pos.second),
+                Pair(pos.first + LENGTH, pos.second),
+                chooseHookColour(getSingleAmount())
+        )
 
         // draw connection
         connected.forEach {
             if (it.side == Side.LEFT) {
                 val anotherPos = it.resolve()
-                DrawUtils.drawCentered(name, pos, anotherPos)
-                ctx.moveTo(pos.first + LENGTH, pos.second)
-                ctx.lineTo(anotherPos.first - LENGTH, anotherPos.second)
+                DrawUtils.drawTextNew(name, pos, anotherPos)
+
+                DrawUtils.drawLine(
+                        Pair(pos.first + LENGTH, pos.second),
+                        Pair(anotherPos.first - LENGTH, anotherPos.second),
+                        chooseBeltColour(getAmount())
+                )
             }
         }
         if (connected.isEmpty()) {
             drawTextUnconnected(pos.first, pos.second)
         }
 
-        if (parent.selectedRecipe != null){
-            drawAmount(pos.first, pos.second)
+        getAmount()?.let {
+            drawAmount(it, pos.first, pos.second)
         }
     }
 
-    private fun getAmount(): Double {
+    private fun chooseBeltColour(amount: Double?): String {
+        println("hook: $amount")
+        if (amount == null) return "RGB(0,0,0)"
+        return when (amount) {
+            in 0.0..15.0 -> "RGB(222,138,41)"
+            in 15.0..30.0 -> "RGB(0,64,255)"
+            in 30.0..45.0 -> "RGB(255,8,0)"
+            else -> "RGB(0,0,0)"
+        }
+    }
+
+    private fun chooseHookColour(amount: Double?): String {
+        println("belt: $amount")
+        if (amount == null) return "RGB(0,0,0)"
+        return when (amount) {
+            in 0.0..0.84 -> "RGB(222,138,41)"
+            in 0.84..2.31 -> "RGB(115,195,108)"
+            in 2.31..4.44 -> "RGB(0,64,255)"
+            else -> "RGB(0,0,0)"
+        }
+    }
+
+    private fun getAmount(): Double? {
+        return getSingleAmount()?.times(parent.quantity)
+    }
+
+    private fun getSingleAmount(): Double? {
         val oneTimeAmount = if (side == Side.LEFT) {
             parent.selectedRecipe?.inputs?.get(this.number)
         } else {
             parent.selectedRecipe?.outputs?.get(this.number)
-        }?.second ?: throw Exception("Recipe is not selected for ${parent.data.name}")
-        val energy = parent.selectedRecipe?.energy ?: throw Exception("Recipe is not selected for ${parent.data.name}")
-        return oneTimeAmount.toDouble() * parent.quantity * parent.data.speed * energy
+        }?.second ?: return null
+        val energy = parent.selectedRecipe?.energy ?: return null
+        return oneTimeAmount.toDouble() * parent.data.speed / energy
     }
 
-    private fun drawAmount(x: Double, y: Double) {
+    private fun drawAmount(amount: Double, x: Double, y: Double) {
         val margin = 7.0
         if (side == Side.LEFT) {
-            DrawUtils.drawCentered(
-                    getAmount().toString(),
+            DrawUtils.drawTextNew(
+                    amount.toString(),
                     Pair(x + margin, y - 5.0),
                     Pair(x + (MACHINE_WIDTH / 2), y + 5.0),
                     DrawUtils.HAlign.LEFT,
                     DrawUtils.VAlign.TOP
             )
         } else {
-            DrawUtils.drawCentered(
-                    getAmount().toString(),
+            DrawUtils.drawTextNew(
+                    amount.toString(),
                     Pair(x - (MACHINE_WIDTH / 2), y - 5.0),
                     Pair(x - margin, y + 5.0),
                     DrawUtils.HAlign.RIGHT,
@@ -68,7 +101,7 @@ data class Hook(
     private fun drawTextUnconnected(x: Double, y: Double) {
         val margin = 7.0
         if (side == Side.LEFT) {
-            DrawUtils.drawCentered(
+            DrawUtils.drawTextNew(
                     name,
                     Pair(x - (MACHINE_WIDTH / 2), y - 5.0),
                     Pair(x - margin, y + 5.0),
@@ -76,7 +109,7 @@ data class Hook(
                     DrawUtils.VAlign.TOP
             )
         } else {
-            DrawUtils.drawCentered(
+            DrawUtils.drawTextNew(
                     name,
                     Pair(x + margin, y - 5.0),
                     Pair(x + (MACHINE_WIDTH / 2), y + 5.0),

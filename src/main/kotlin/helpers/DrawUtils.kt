@@ -28,7 +28,7 @@ object DrawUtils {
         ctx.fillText(text, x + offsetLeft, y + offsetUp + textHeight, w)
     }
 
-    fun drawCentered(
+    fun drawTextNew(
             text: String,
             pos1: Pair<Double, Double>,
             pos2: Pair<Double, Double>,
@@ -59,5 +59,22 @@ object DrawUtils {
         }
 
         ctx.fillText(text, upperLeft.first + offsetLeft, upperLeft.second + offsetTop + textHeight, boxWidth)
+    }
+
+    fun drawLine(first: Pair<Double, Double>, second: Pair<Double, Double>, color: String = "RGB(0,0,0)") {
+        val ctx = GUI.getContext()
+
+        val oldFillStyle = ctx.fillStyle
+        val oldStrokeStyle = ctx.strokeStyle
+        ctx.fillStyle = color
+        ctx.strokeStyle = color
+
+        ctx.beginPath()
+        ctx.moveTo(first.first, first.second)
+        ctx.lineTo(second.first, second.second)
+        ctx.stroke()
+
+        ctx.fillStyle = oldFillStyle
+        ctx.strokeStyle = oldStrokeStyle
     }
 }

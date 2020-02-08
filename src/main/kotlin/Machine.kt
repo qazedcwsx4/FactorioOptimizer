@@ -40,10 +40,10 @@ data class Machine(
         drawTable(x, y, MACHINE_WIDTH, MACHINE_HEIGHT, BAR_HEIGHT)
         DrawUtils.drawText(data.name + " " + quantity.toString(), x, y, MACHINE_WIDTH, BAR_HEIGHT / 2)
         selectedRecipe?.let { DrawUtils.drawText(it.name, x, y + BAR_HEIGHT / 2, MACHINE_WIDTH, BAR_HEIGHT / 2) }
-
-        drawHooks()
         ctx.stroke()
         ctx.closePath()
+
+        drawHooks()
     }
 
     fun changeRecipe(selectedOption: Recipe?) {
