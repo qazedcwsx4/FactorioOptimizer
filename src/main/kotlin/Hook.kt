@@ -28,6 +28,41 @@ data class Hook(
         if (connected.isEmpty()) {
             drawTextUnconnected(pos.first, pos.second)
         }
+
+        if (parent.selectedRecipe != null){
+            drawAmount(pos.first, pos.second)
+        }
+    }
+
+    private fun getAmount(): Double {
+        val oneTimeAmount = if (side == Side.LEFT) {
+            parent.selectedRecipe?.inputs?.get(this.number)
+        } else {
+            parent.selectedRecipe?.outputs?.get(this.number)
+        }?.second ?: throw Exception("Recipe is not selected for ${parent.data.name}")
+        val energy = parent.selectedRecipe?.energy ?: throw Exception("Recipe is not selected for ${parent.data.name}")
+        return oneTimeAmount.toDouble() * parent.quantity * parent.data.speed * energy
+    }
+
+    private fun drawAmount(x: Double, y: Double) {
+        val margin = 7.0
+        if (side == Side.LEFT) {
+            DrawUtils.drawCentered(
+                    getAmount().toString(),
+                    Pair(x + margin, y - 5.0),
+                    Pair(x + (MACHINE_WIDTH / 2), y + 5.0),
+                    DrawUtils.HAlign.LEFT,
+                    DrawUtils.VAlign.TOP
+            )
+        } else {
+            DrawUtils.drawCentered(
+                    getAmount().toString(),
+                    Pair(x - (MACHINE_WIDTH / 2), y - 5.0),
+                    Pair(x - margin, y + 5.0),
+                    DrawUtils.HAlign.RIGHT,
+                    DrawUtils.VAlign.TOP
+            )
+        }
     }
 
     private fun drawTextUnconnected(x: Double, y: Double) {
