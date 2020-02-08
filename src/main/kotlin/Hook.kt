@@ -7,7 +7,7 @@ data class Hook(
         val side: Side,
         val number: Int,
         val parent: Machine,
-        var connected: Hook? = null
+        var connected: MutableList<Hook> = mutableListOf()
 ) {
     fun draw() {
         val ctx = GUI.getContext()
@@ -18,8 +18,8 @@ data class Hook(
         drawText(pos.first, pos.second)
 
         // draw connection
-        connected?.let {
-            if (connected!!.side == Side.LEFT) {
+        connected.forEach {
+            if (it.side == Side.LEFT) {
                 val anotherPos = it.resolve()
                 ctx.moveTo(pos.first + LENGTH, pos.second)
                 ctx.lineTo(anotherPos.first - LENGTH, anotherPos.second)
@@ -55,20 +55,26 @@ data class Hook(
     }
 
     fun hook(o: Hook) {
-        unhook()
-        if (canBeHooked(o)) {
-            o.unhook()
-            connected = o
-            o.connected = this
+        if (o == this) {
+            unhookAll()
+        } else if (canBeHooked(o)) {
+            connected.add(o)
+            o.connected.add(this)
         }
     }
 
-    fun unhook() {
-        connected?.connected = null
-        connected = null
+    fun unhookAll() {
+        connected.forEach {
+            it.unhook(this)
+        }
+        connected = mutableListOf()
+    }
+
+    fun unhook(o: Hook) {
+        connected.remove(o)
     }
 
     fun canBeHooked(o: Hook): Boolean {
-        return (o != this && o.side != side && (o.name == "" || name == "" || o.name == this.name))
+        return (o.side != side && (o.name == "" || name == "" || o.name == this.name))
     }
 }

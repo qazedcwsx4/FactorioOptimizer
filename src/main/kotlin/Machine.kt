@@ -48,7 +48,7 @@ data class Machine(
 
     fun changeRecipe(selectedOption: Recipe?) {
         (inputs + outputs).forEach {
-            it.unhook()
+            it.unhookAll()
         }
         selectedRecipe = selectedOption
         if (selectedRecipe == null) {
@@ -64,7 +64,7 @@ data class Machine(
 
     fun prepareToRemove() {
         (inputs + outputs).forEach {
-            it.unhook()
+            it.unhookAll()
         }
     }
 
