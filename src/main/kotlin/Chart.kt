@@ -1,3 +1,4 @@
+import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.Event
 import org.w3c.dom.events.KeyboardEvent
@@ -13,9 +14,16 @@ class Chart(
 
     init {
         document.addEventListener("keydown", ::handleKeyDown)
-        GUI.addListener("mousedown", ::handleMouseDown)
         GUI.setTargetedChart(this)
+        GUI.addListener("mousedown", ::handleMouseDown)
         GUI.addRecipesListener("change", ::handleRecipeChange)
+        GUI.addQuantityListener("input", ::handleQuantityChange)
+    }
+
+    private fun handleQuantityChange(evt: Event) {
+        val quantity = (evt.target as HTMLInputElement).value.toInt()
+        selected?.quantity = quantity
+        drawState()
     }
 
     private fun handleRecipeChange(evt: Event) {
@@ -126,7 +134,7 @@ class Chart(
     private fun selectMachine(machine: Machine) {
         selected = machine
         GUI.updateRecipes(factory.registry.getRecipes(machine.data.name))
-
+        GUI.updateQuantity(machine.quantity)
         if (selected?.selectedRecipe == null) GUI.selectRecipe(0)
         else GUI.selectRecipe(factory.registry.getRecipeIndex(selected?.selectedRecipe!!.name))
 

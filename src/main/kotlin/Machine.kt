@@ -16,6 +16,7 @@ data class Machine(
         val data: MachineData,
         var x: Double = 0.0,
         var y: Double = 0.0,
+        var quantity: Int = 1,
         var inputs: List<Hook> = listOf(),
         var outputs: List<Hook> = listOf(),
         var selectedRecipe: Recipe? = null
@@ -37,7 +38,7 @@ data class Machine(
         }
         ctx.beginPath()
         drawTable(x, y, MACHINE_WIDTH, MACHINE_HEIGHT, BAR_HEIGHT)
-        DrawUtils.drawText(data.name, x, y, MACHINE_WIDTH, BAR_HEIGHT / 2)
+        DrawUtils.drawText(data.name + " " + quantity.toString(), x, y, MACHINE_WIDTH, BAR_HEIGHT / 2)
         selectedRecipe?.let { DrawUtils.drawText(it.name, x, y + BAR_HEIGHT / 2, MACHINE_WIDTH, BAR_HEIGHT / 2) }
 
         drawHooks()

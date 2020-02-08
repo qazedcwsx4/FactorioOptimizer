@@ -7,6 +7,7 @@ import kotlin.dom.clear
 object GUI {
     private val machinePicker = document.createElement("select") as HTMLSelectElement
     private val recipePicker = document.createElement("select") as HTMLSelectElement
+    private val quantityPicker = document.createElement("input") as HTMLInputElement
 
     private val canvas: Canvas
 
@@ -15,6 +16,8 @@ object GUI {
     init {
         document.body!!.appendChild(machinePicker)
         document.body!!.appendChild(recipePicker)
+        quantityPicker.type="number"
+        document.body!!.appendChild(quantityPicker)
         canvas = Canvas()
     }
 
@@ -32,6 +35,10 @@ object GUI {
         }
     }
 
+    fun updateQuantity(quantity: Int) {
+        quantityPicker.value = quantity.toString()
+    }
+
     fun setTargetedChart(chart: Chart) {
         target = chart
     }
@@ -42,6 +49,14 @@ object GUI {
 
     fun removeRecipesListener(type: String, listener: (Event) -> Unit) {
         recipePicker.removeEventListener(type, listener)
+    }
+
+    fun addQuantityListener(type: String, listener: (Event) -> Unit) {
+        quantityPicker.addEventListener(type, listener)
+    }
+
+    fun removeQuantityListener(type: String, listener: (Event) -> Unit) {
+        quantityPicker.removeEventListener(type, listener)
     }
 
     fun selectRecipe(index: Int) {
