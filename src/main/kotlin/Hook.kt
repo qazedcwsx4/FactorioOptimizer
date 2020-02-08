@@ -15,23 +15,39 @@ data class Hook(
         ctx.moveTo(pos.first - LENGTH, pos.second)
         ctx.lineTo(pos.first + LENGTH, pos.second)
 
-        drawText(pos.first, pos.second)
 
         // draw connection
         connected.forEach {
             if (it.side == Side.LEFT) {
                 val anotherPos = it.resolve()
+                DrawUtils.drawCentered(name, pos, anotherPos)
                 ctx.moveTo(pos.first + LENGTH, pos.second)
                 ctx.lineTo(anotherPos.first - LENGTH, anotherPos.second)
             }
         }
+        if (connected.isEmpty()) {
+            drawTextUnconnected(pos.first, pos.second)
+        }
     }
 
-    private fun drawText(x: Double, y: Double) {
+    private fun drawTextUnconnected(x: Double, y: Double) {
+        val margin = 7.0
         if (side == Side.LEFT) {
-            DrawUtils.drawText(name, x, y - 10, MACHINE_WIDTH / 2, 20.0)
+            DrawUtils.drawCentered(
+                    name,
+                    Pair(x - (MACHINE_WIDTH / 2), y - 5.0),
+                    Pair(x - margin, y + 5.0),
+                    DrawUtils.HAlign.RIGHT,
+                    DrawUtils.VAlign.TOP
+            )
         } else {
-            DrawUtils.drawText(name, x - MACHINE_WIDTH / 2, y - 10, MACHINE_WIDTH / 2, 20.0)
+            DrawUtils.drawCentered(
+                    name,
+                    Pair(x + margin, y - 5.0),
+                    Pair(x + (MACHINE_WIDTH / 2), y + 5.0),
+                    DrawUtils.HAlign.LEFT,
+                    DrawUtils.VAlign.TOP
+            )
         }
     }
 
