@@ -42,7 +42,6 @@ data class Hook(
     }
 
     private fun chooseBeltColour(amount: Double?): String {
-        println("hook: $amount")
         if (amount == null) return "RGB(0,0,0)"
         return when (amount) {
             in 0.0..15.0 -> "RGB(222,138,41)"
@@ -53,7 +52,6 @@ data class Hook(
     }
 
     private fun chooseHookColour(amount: Double?): String {
-        println("belt: $amount")
         if (amount == null) return "RGB(0,0,0)"
         return when (amount) {
             in 0.0..0.84 -> "RGB(222,138,41)"
