@@ -14,7 +14,6 @@ class Chart(
 
     init {
         document.addEventListener("keydown", ::handleKeyDown)
-        GUI.setTargetedChart(this)
         GUI.addListener("mousedown", ::handleMouseDown)
         GUI.addRecipesListener("change", ::handleRecipeChange)
         GUI.addQuantityListener("input", ::handleQuantityChange)

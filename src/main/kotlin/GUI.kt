@@ -11,8 +11,6 @@ object GUI {
 
     private val canvas: Canvas
 
-    private lateinit var target: Chart
-
     init {
         document.body!!.appendChild(machinePicker)
         document.body!!.appendChild(recipePicker)
@@ -39,9 +37,6 @@ object GUI {
         quantityPicker.value = quantity.toString()
     }
 
-    fun setTargetedChart(chart: Chart) {
-        target = chart
-    }
 
     fun addRecipesListener(type: String, listener: (Event) -> Unit) {
         recipePicker.addEventListener(type, listener)
