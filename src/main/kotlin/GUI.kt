@@ -5,17 +5,17 @@ import kotlin.browser.document
 import kotlin.dom.clear
 
 object GUI {
-    private val machinePicker = document.createElement("select") as HTMLSelectElement
-    private val recipePicker = document.createElement("select") as HTMLSelectElement
-    private val quantityPicker = document.createElement("input") as HTMLInputElement
+    private val machinePicker = document.getElementById("machinePicker") as HTMLSelectElement
+    private val recipePicker = document.getElementById("recipePicker") as HTMLSelectElement
+    private val quantityPicker = document.getElementById("quantityPicker") as HTMLInputElement
 
     private val canvas: Canvas
 
     init {
-        document.body!!.appendChild(machinePicker)
-        document.body!!.appendChild(recipePicker)
-        quantityPicker.type="number"
-        document.body!!.appendChild(quantityPicker)
+//        document.body!!.appendChild(machinePicker)
+//        document.body!!.appendChild(recipePicker)
+//        quantityPicker.type="number"
+//        document.body!!.appendChild(quantityPicker)
         canvas = Canvas()
     }
 
