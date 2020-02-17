@@ -6,7 +6,7 @@ class Application(
     init {
         val registry = RecipeRegistry(config)
         val factory = MachineFactory(registry)
-        val chart = Chart(factory)
+        val chart = Chart(factory, "New chart")
         GUI.updateMachines(registry.getMachineNames())
     }
 }

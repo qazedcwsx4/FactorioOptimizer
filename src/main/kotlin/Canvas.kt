@@ -4,7 +4,7 @@ import kotlin.browser.document
 import kotlin.browser.window
 
 class Canvas {
-    val canvas = document.createElement("canvas") as HTMLCanvasElement
+    val canvas = document.getElementById("canvas") as HTMLCanvasElement
     val context = canvas.getContext("2d") as CanvasRenderingContext2D
     val width = window.innerWidth
     val height = window.innerHeight
@@ -15,7 +15,6 @@ class Canvas {
         canvas.height = (window.innerHeight * scale).toInt()
         canvas.style.width = "${window.innerWidth}px"
         canvas.style.height = "${window.innerHeight}px"
-        document.body!!.appendChild(canvas)
 
         context.scale(scale, scale)
         context.font = "12px sans-serif"

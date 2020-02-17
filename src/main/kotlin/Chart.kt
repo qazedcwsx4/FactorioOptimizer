@@ -7,7 +7,8 @@ import kotlin.browser.document
 import kotlin.browser.window
 
 class Chart(
-        private val factory: MachineFactory
+        private val factory: MachineFactory,
+        private var name: String
 ) {
     private val machines = mutableListOf<Machine>()
     private var selected: Machine? = null
