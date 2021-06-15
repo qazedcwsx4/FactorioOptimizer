@@ -1,3 +1,5 @@
+package draw
+
 import helpers.DrawUtils
 import recipe.MachineData
 import recipe.Recipe
@@ -13,13 +15,13 @@ enum class Side {
 }
 
 data class Machine(
-        val data: MachineData,
-        var x: Double = 0.0,
-        var y: Double = 0.0,
-        var quantity: Int = 1,
-        var inputs: List<Hook> = listOf(),
-        var outputs: List<Hook> = listOf(),
-        var selectedRecipe: Recipe? = null
+    val data: MachineData,
+    var x: Double = 0.0,
+    var y: Double = 0.0,
+    var quantity: Int = 1,
+    var inputs: List<Hook> = listOf(),
+    var outputs: List<Hook> = listOf(),
+    var selectedRecipe: Recipe? = null
 ) {
     init {
         inputs = listOf(Hook("", Side.LEFT, 0, this))
@@ -67,20 +69,4 @@ data class Machine(
             it.unhookAll()
         }
     }
-
-    private fun drawHooks() {
-        (inputs + outputs).forEach {
-            it.draw()
-        }
-    }
-
-    private fun drawTable(x: Double, y: Double, w: Double, h: Double, barH: Double) {
-        val ctx = GUI.getContext()
-        ctx.rect(x, y, w, h)
-        ctx.moveTo(x, y + barH / 2)
-        ctx.lineTo(x + w, y + barH / 2)
-        ctx.moveTo(x, y + barH)
-        ctx.lineTo(x + w, y + barH)
-    }
-
 }

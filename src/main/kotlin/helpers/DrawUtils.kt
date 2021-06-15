@@ -1,5 +1,6 @@
 package helpers
 
+import draw.GUI
 import kotlin.math.max
 import kotlin.math.min
 

@@ -1,3 +1,4 @@
+import draw.Machine
 import recipe.RecipeRegistry
 
 class MachineFactory(

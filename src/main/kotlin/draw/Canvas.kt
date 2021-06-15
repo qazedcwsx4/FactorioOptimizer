@@ -1,3 +1,5 @@
+package draw
+
 import org.w3c.dom.CanvasRenderingContext2D
 import org.w3c.dom.HTMLCanvasElement
 import kotlin.browser.document
@@ -21,10 +23,5 @@ class Canvas {
         context.fillStyle = "RGB(0,0,0)"
         context.lineWidth = 2.0
         context.clearRect(0.0, 0.0, canvas.width.toDouble(), canvas.height.toDouble())
-    }
-
-    fun drawRect() {
-        context.fillStyle = "black"
-        context.strokeRect(10.0, 10.0, 110.0, 110.0)
     }
 }

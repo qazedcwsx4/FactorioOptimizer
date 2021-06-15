@@ -1,16 +1,17 @@
+package draw
+
 import helpers.DrawUtils
 
 const val LENGTH = 5
 
 data class Hook(
-        val name: String,
-        val side: Side,
-        val number: Int,
-        val parent: Machine,
-        var connected: MutableList<Hook> = mutableListOf()
+    val name: String,
+    val side: Side,
+    val number: Int,
+    val parent: Machine,
+    var connected: MutableList<Hook> = mutableListOf()
 ) {
     fun draw() {
-        val ctx = GUI.getContext()
         val pos = resolve()
 
         DrawUtils.drawLine(
@@ -152,11 +153,11 @@ data class Hook(
         connected = mutableListOf()
     }
 
-    fun unhook(o: Hook) {
+    private fun unhook(o: Hook) {
         connected.remove(o)
     }
 
-    fun canBeHooked(o: Hook): Boolean {
+    private fun canBeHooked(o: Hook): Boolean {
         return (o.side != side && (o.name == "" || name == "" || o.name == this.name))
     }
 }

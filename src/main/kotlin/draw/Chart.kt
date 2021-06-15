@@ -1,3 +1,6 @@
+package draw
+
+import MachineFactory
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.events.Event
@@ -7,17 +10,18 @@ import kotlin.browser.document
 import kotlin.browser.window
 
 class Chart(
-        private val factory: MachineFactory,
-        private var name: String
+    private val factory: MachineFactory,
+    private val gui: GUI,
+    private var name: String
 ) {
     private val machines = mutableListOf<Machine>()
-    private var selected: Machine? = null
+    var selected: Machine? = null
 
     init {
         document.addEventListener("keydown", ::handleKeyDown)
-        GUI.addListener("mousedown", ::handleMouseDown)
-        GUI.addRecipesListener("change", ::handleRecipeChange)
-        GUI.addQuantityListener("input", ::handleQuantityChange)
+        gui.addListener("mousedown", ::handleMouseDown)
+        gui.addRecipesListener("change", ::handleRecipeChange)
+        gui.addQuantityListener("input", ::handleQuantityChange)
     }
 
     private fun handleQuantityChange(evt: Event) {
@@ -80,7 +84,7 @@ class Chart(
     }
 
     private fun createMachine(x: Double, y: Double) {
-        machines.add(factory.createMachine(GUI.getCurrentMachine(), x, y))
+        machines.add(factory.createMachine(gui.getCurrentMachine(), x, y))
         drawState()
     }
 
@@ -96,16 +100,16 @@ class Chart(
         lateinit var handleMouseUp: (Event) -> Unit
         handleMouseUp = {
             it as MouseEvent
-            GUI.removeListener("mousemove", handleDrag)
-            GUI.removeListener("mouseup", handleMouseUp)
+            gui.removeListener("mousemove", handleDrag)
+            gui.removeListener("mouseup", handleMouseUp)
 
             checkHooks(newX, newY)?.let {
                 hook.hook(it)
                 drawState()
             }
         }
-        GUI.addListener("mousemove", handleDrag)
-        GUI.addListener("mouseup", handleMouseUp)
+        gui.addListener("mousemove", handleDrag)
+        gui.addListener("mouseup", handleMouseUp)
     }
 
     private fun dragMachine(x: Double, y: Double, machine: Machine) {
@@ -124,25 +128,25 @@ class Chart(
         lateinit var handleMouseUp: (Event) -> Unit
         handleMouseUp = {
             it as MouseEvent
-            GUI.removeListener("mousemove", handleDrag)
-            GUI.removeListener("mouseup", handleMouseUp)
+            gui.removeListener("mousemove", handleDrag)
+            gui.removeListener("mouseup", handleMouseUp)
         }
-        GUI.addListener("mousemove", handleDrag)
-        GUI.addListener("mouseup", handleMouseUp)
+        gui.addListener("mousemove", handleDrag)
+        gui.addListener("mouseup", handleMouseUp)
     }
 
     private fun selectMachine(machine: Machine) {
         selected = machine
-        GUI.updateRecipes(factory.registry.getRecipes(machine.data.name))
-        GUI.updateQuantity(machine.quantity)
-        if (selected?.selectedRecipe == null) GUI.selectRecipe(0)
-        else GUI.selectRecipe(factory.registry.getRecipeIndex(selected?.selectedRecipe!!.name))
+        gui.updateRecipeList(factory.registry.getRecipes(machine.data.name))
+        gui.updateQuantity(machine.quantity)
+        if (selected?.selectedRecipe == null) gui.selectRecipe(0)
+        else gui.selectRecipe(factory.registry.getRecipeIndex(selected?.selectedRecipe!!.name))
 
         drawState()
     }
 
     private fun drawState() {
-        GUI.clearScreen()
+        gui.clearScreen()
         machines.forEach {
             it.draw(it == selected)
         }
